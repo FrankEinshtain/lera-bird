@@ -1,15 +1,16 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/Layout"
 
 const SecondPage = () => (
-  <Layout>
-    <Seo title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+  <Layout page="second">
+    <div className="inner">
+      <h1>second page in underconstruction</h1>
+      {/* <p>underconstruction</p> */}
+      <br />
+      <Link to="/">Go back to the homepage</Link>
+    </div>
   </Layout>
 )
 

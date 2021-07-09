@@ -1,9 +1,18 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "lera-bird",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Lera bird gallery",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Frank Einshtain <frank.einshtain@gmail.com>",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
     "gatsby": "^3.9.0",
     "gatsby-plugin-gatsby-cloud": "^2.9.0",
@@ -11,34 +20,53 @@
     "gatsby-plugin-manifest": "^3.9.0",
     "gatsby-plugin-offline": "^4.9.0",
     "gatsby-plugin-react-helmet": "^4.9.0",
+    "gatsby-plugin-sass": "^4.9.0",
     "gatsby-plugin-sharp": "^3.9.0",
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-transformer-sharp": "^3.9.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "sass": "^1.35.2"
   },
   "devDependencies": {
-    "prettier": "2.3.2"
+    "eslint": "^7.30.0",
+    "eslint-config-gatsby-standard": "^3.0.2",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.19.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "pretty-quick",
+      "eslint --fix",
+      "stylelint . --fix",
+      "git add"
+    ],
+    "*.{json,html}": [
+      "pretty-quick",
+      "git add"
+    ],
+    "*.{css,scss}": [
+      "stylelint . --fix",
+      "pretty-quick",
+      "git add"
+    ]
   },
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
